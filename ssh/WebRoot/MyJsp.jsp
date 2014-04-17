@@ -1,6 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@taglib prefix="s" uri="/struts-tags" %>
-
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -11,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'login.jsp' starting page</title>
+    <title>My JSP 'MyJsp.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -25,26 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    
-    <div>
-    
-    
-    <form action="login.action" method="post">
-		username<input type="text" name="username"/><br>
-		password<input type="password" name="password"/><br><input type="submit" value="login">啊
-		
-	</form>
-	
-	</div>
-	
-	<div>
-		<s:form action="login.action" method="post">
-			<s:textfield name="username" label="用户名"></s:textfield>
-			<s:password name="password" label="密码"></s:password>
-			<s:submit value="登陆"></s:submit>
-		</s:form>
-	</div>
-
-	
+    This is my JSP page. <br>
   </body>
 </html>
