@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"       
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xmlns:context="http://www.springframework.org/schema/context"   
+    xmlns:tx="http://www.springframework.org/schema/tx"  
+    xmlns:aop="http://www.springframework.org/schema/aop"  
+    xsi:schemaLocation="  
+            http://www.springframework.org/schema/beans    
+            http://www.springframework.org/schema/beans/spring-beans-3.1.xsd    
+            http://www.springframework.org/schema/aop    
+            http://www.springframework.org/schema/aop/spring-aop-3.1.xsd    
+            http://www.springframework.org/schema/tx    
+            http://www.springframework.org/schema/tx/spring-tx-3.1.xsd    
+            http://www.springframework.org/schema/context    
+            http://www.springframework.org/schema/context/spring-context-3.1.xsd">  
+  
+    <!-- DataSource -->  
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"  
+        destroy-method="close">  
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />  
+        <property name="jdbcUrl"   
+            value="jdbc:mysql://127.0.0.1:3306/hris" />  
+        <property name="user" value="root" />  
+        <property name="password" value="root" />  
+    </bean>  
+  
+    <!-- SessionFactory -->  
+    <bean id="sessionFactory"  
+        class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"  
+        p:dataSource-ref="dataSource"    
+        p:configLocation="classpath:hibernate.cfg.xml" >  
+        
+        <property name="dataSource" ref="dataSource" />
+    	 <!-- 设置Spring扫描实体类所在的包 -->
+    	<property name="packagesToScan">
+    		<value>cn.ty.domain</value>
+    	</property>
+        </bean>
+  
+    <!-- TransactionManager -->  
+    <bean id="transactionManager"  
+        class="org.springframework.orm.hibernate4.HibernateTransactionManager"  
+        p:sessionFactory-ref="sessionFactory" />  
+  
+    <!-- Spring Advice -->  
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">  
+        <tx:attributes>  
+            <tx:method name="get*" read-only="true"></tx:method>  
+            <tx:method name="*"></tx:method>  
+        </tx:attributes>  
+    </tx:advice>  
+  
+    <!-- Spring Aop Config -->  
+    <aop:config>  
+        <aop:pointcut id="pointcut"  
+            expression="  
+                execution(* cn.ty.service.impl.*Impl.*(..))" />  
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut" />  
+    </aop:config>  
+  
+
+
+
+    
+        <!-- Dao -->  
+    <bean name="baseDao" class="cn.ty.dao.impl.BaseDaoImpl">  
+        <property name="sessionFactory" ref ="sessionFactory" >  
+        </property>  
+    </bean>  
+  	<bean name="userDao" class="cn.ty.dao.impl.UserDaoImpl">
+  		<property name="sessionFactory" ref="sessionFactory">  
+        </property>  
+  	</bean>
+  
+  
+    <!-- Service -->  
+    <bean name="userService" class="cn.ty.service.impl.UserServiceImpl">  
+        <property name="userDao" ref="userDao"></property>  
+    </bean>  
+  
+  	<!-- Action -->
+    <bean name="userAction" class="cn.ty.action.UserAction" scope="session">  
+        <property name="userService" ref="userService"></property>  
+    </bean>  
+    
+  
+  
+</beans>  
