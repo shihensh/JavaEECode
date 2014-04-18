@@ -4,7 +4,6 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-
     <constant name="struts.enable.DynamicMethodInvocation" value="false" />
     <constant name="struts.devMode" value="true" />
 
@@ -25,6 +24,9 @@
                /WEB-INF/page/home.jsp
             </result>
         </action>
+    </package>
+    <package name="teacher" namespace="/tm" extends="struts-default">
+     
     </package>
 
 
