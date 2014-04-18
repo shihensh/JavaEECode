@@ -65,26 +65,25 @@
 
     
         <!-- Dao -->  
-    <bean name="baseDao" class="cn.ty.dao.impl.BaseDaoImpl">  
+    <bean id="baseDao" class="cn.ty.dao.impl.BaseDaoImpl">  
         <property name="sessionFactory" ref ="sessionFactory" >  
         </property>  
     </bean>  
-  	<bean name="userDao" class="cn.ty.dao.impl.UserDaoImpl">
+  	<bean id="userDao" class="cn.ty.dao.impl.UserDaoImpl">
   		<property name="sessionFactory" ref="sessionFactory">  
         </property>  
   	</bean>
   
   
     <!-- Service -->  
-    <bean name="userService" class="cn.ty.service.impl.UserServiceImpl">  
+    <bean id="userService" class="cn.ty.service.impl.UserServiceImpl">  
         <property name="userDao" ref="userDao"></property>  
     </bean>  
   
   	<!-- Action -->
-    <bean name="userAction" class="cn.ty.action.UserAction" scope="session">  
+    <bean id="userAction" class="cn.ty.action.UserAction" scope="session">  
         <property name="userService" ref="userService"></property>  
     </bean>  
     
-  
   
 </beans>  

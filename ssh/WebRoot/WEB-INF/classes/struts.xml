@@ -25,8 +25,11 @@
             </result>
         </action>
     </package>
-    <package name="teacher" namespace="/tm" extends="struts-default">
+    <package name="dept" namespace="/dept" extends="struts-default">
      
+    	<action name="deptList" class="deptAction" method="listDept">
+    		<result name="deptList">/WEB-INFO/page/deptList.jsp</result>
+    	</action>
     </package>
 
 
