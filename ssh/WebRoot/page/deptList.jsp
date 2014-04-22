@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib  prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -32,7 +33,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     			<td>部门id</td><td>部门名称</td><td>部门描述</td><td>上级部门</td>
     		</tr>
     		
-    		<tr></tr>
+    		<s:iterator var=dept value="#deptList">
+    		<tr>
+    			<td><s:property value="dept.id"/>1</td>
+    			<td><s:property value="dept.id"/>2</td>
+    			<td><s:property value="dept.id"/>3</td>
+    			<td><s:property value="dept.id"/>4</td>
+    		</tr>
+    		</s:iterator>
     	</table>
     </div>
   </body>

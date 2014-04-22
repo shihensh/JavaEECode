@@ -34,10 +34,11 @@ public class BaseDaoImpl extends HibernateDaoSupport implements BaseDao {
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Object> get() {
 		// TODO Auto-generated method stub
-		return null;
+		return (List<Object>) this.getHibernateTemplate().load(Object.class, null);
 	}
 
 	@Override

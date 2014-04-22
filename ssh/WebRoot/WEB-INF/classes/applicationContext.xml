@@ -73,17 +73,23 @@
   		<property name="sessionFactory" ref="sessionFactory">  
         </property>  
   	</bean>
-  
+  	<bean id="deptDao" class="cn.ty.dao.impl.DeptDaoImpl">
+  		<property name="sessionFactory" ref="sessionFactory"></property>
+  	</bean>
   
     <!-- Service -->  
     <bean id="userService" class="cn.ty.service.impl.UserServiceImpl">  
         <property name="userDao" ref="userDao"></property>  
     </bean>  
-  
+	<bean id="deptService" class="cn.ty.service.impl.DeptServiceImpl">
+		<property name="deptDao" ref="deptDao"></property>
+	</bean>  
   	<!-- Action -->
     <bean id="userAction" class="cn.ty.action.UserAction" scope="session">  
         <property name="userService" ref="userService"></property>  
     </bean>  
-    
+    <bean id="deptAction" class="cn.ty.action.DeptAction" scope="session">
+    	<property name="deptService" ref="deptService"></property>
+    </bean>
   
 </beans>  

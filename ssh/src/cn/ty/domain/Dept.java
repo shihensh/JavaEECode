@@ -9,10 +9,13 @@ import javax.persistence.Table;
 @Table(name="tb_dept")
 public class Dept {
 
-	
+	/**部门id */
 	private Integer id;
+	/**部门名称*/
 	private String deptName;
+	/**部门职能*/
 	private String deptDesc;
+	/**上级部门id*/
 	private Integer parentId;
 	
 	
