@@ -58,7 +58,7 @@
             expression="  
                 execution(* cn.ty.service.impl.*Impl.*(..))" />  
         <aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut" />  
-    </aop:config>  
+    </aop:config>
   
 
 
