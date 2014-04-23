@@ -59,16 +59,9 @@
                 execution(* cn.ty.service.impl.*Impl.*(..))" />  
         <aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut" />  
     </aop:config>
-  
-
-
 
     
-        <!-- Dao -->  
-    <bean id="baseDao" class="cn.ty.dao.impl.BaseDaoImpl">  
-        <property name="sessionFactory" ref ="sessionFactory" >  
-        </property>  
-    </bean>  
+    <!-- Dao -->  
   	<bean id="userDao" class="cn.ty.dao.impl.UserDaoImpl">
   		<property name="sessionFactory" ref="sessionFactory">  
         </property>  
