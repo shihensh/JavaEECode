@@ -26,14 +26,20 @@ public class BaseDaoImpl<T>  implements BaseDao {
 
 	@Override
 	public void add(Object t) {
+		this.getSession().save(t);
+	}
+	
+
+	@Override
+	public List<T> listAll(Class T) {
 		// TODO Auto-generated method stub
-		
+		return (List<T>) this.getSession().load(T, null);
 	}
 
 	@Override
-	public List listAll(Class T) {
+	public void saveOrUpdate(Object t) {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 	

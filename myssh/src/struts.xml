@@ -4,8 +4,11 @@
 
 	<package name="user" namespace="/user" extends="struts-default">
 
-		<action name="doL" class="userAction">
+		<action name="doLogin" >
 			<result>/WEB-INF/page/login.jsp</result>
+		</action>
+		<action name="login" class="userAction" method="login">
+			<result name="succeed">/WEB-INF/page/home.jsp</result>
 		</action>
 	</package>
 </struts>    

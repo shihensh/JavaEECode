@@ -24,4 +24,12 @@
     <filter-name>struts2</filter-name>
     <url-pattern>*.action</url-pattern>
   </filter-mapping>
+  
+   <!-- Spring Web Request Listener -->  
+    <listener>  
+        <listener-class>  
+            org.springframework.web.context.request.RequestContextListener  
+        </listener-class>  
+    </listener>  
+  
 </web-app>
