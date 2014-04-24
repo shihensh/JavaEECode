@@ -19,5 +19,12 @@ public class UserServiceImpl implements UserService{
 		return user;
 	}
 
+	@Override
+	public void add(User user) {
+		// TODO Auto-generated method stub
+		userDao.add(user);
+		
+	}
+
 	
 }

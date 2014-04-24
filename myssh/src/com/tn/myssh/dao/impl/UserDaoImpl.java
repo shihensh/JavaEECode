@@ -22,6 +22,6 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 	}
 	
 	public void add(User user){
-		
+		this.getSession().save(user);
 	}
 }

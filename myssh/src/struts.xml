@@ -7,7 +7,13 @@
 		<action name="doLogin" >
 			<result>/WEB-INF/page/login.jsp</result>
 		</action>
+		<action name="doRegister">
+			<result>/WEB-INF/page/regiester.jsp</result>
+		</action>
 		<action name="login" class="userAction" method="login">
+			<result name="succeed">/WEB-INF/page/home.jsp</result>
+		</action>
+		<action name="regiester" class="userAction" method="regiester">
 			<result name="succeed">/WEB-INF/page/home.jsp</result>
 		</action>
 	</package>

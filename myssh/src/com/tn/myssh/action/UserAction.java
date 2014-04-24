@@ -60,4 +60,17 @@ public class UserAction {
 		}
 		
 	}
+	
+	/**
+	 * зЂВс
+	 * @return
+	 */
+	public String regiester(){
+		user = new User();
+		user.setUsername(username);
+		user.setPassword(password);
+		userService.add(user);
+		ActionContext.getContext().getSession().put("user", user);
+		return "succeed";
+	}
 }
