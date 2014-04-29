@@ -17,4 +17,11 @@
 			<result name="succeed">/WEB-INF/page/home.jsp</result>
 		</action>
 	</package>
+	
+	<package name="system" namespace="/sys" extends="struts-default">
+		<action name="listMenu" class="menuAction" method="menuList">
+			<result name="succeed">/WEB-INF/page/menu.jsp</result>
+		</action>
+	
+	</package>
 </struts>    

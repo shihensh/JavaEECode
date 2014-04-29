@@ -1,10 +1,17 @@
 package com.tn.myssh.action;
 
 import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
 import com.tn.myssh.pojo.User;
 import com.tn.myssh.service.UserService;
 
-public class UserAction {
+public class UserAction extends ActionSupport{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6456766562472108276L;
+	
 
 	private UserService userService;
 	

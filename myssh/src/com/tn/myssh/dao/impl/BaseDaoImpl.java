@@ -7,7 +7,7 @@ import org.hibernate.SessionFactory;
 
 import com.tn.myssh.dao.BaseDao;
 
-public class BaseDaoImpl<T>  implements BaseDao {
+public class BaseDaoImpl<T>  implements BaseDao<T> {
 
 	private SessionFactory sessionFactory;
 

@@ -31,7 +31,7 @@
 		<property name="mappingResources">
 			<list>
 				<value>com/tn/myssh/pojo/User.hbm.xml</value>
-			</list>
+				<value>com/tn/myssh/pojo/Menu.hbm.xml</value></list>
 		</property>
 		<property name="hibernateProperties">
 			<props>
@@ -70,12 +70,23 @@
 	<bean id="userDao" class="com.tn.myssh.dao.impl.UserDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="menuDao" class="com.tn.myssh.dao.impl.MenuDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
 	<bean id="userService" class="com.tn.myssh.service.impl.UserServiceImpl">
 		<property name="userDao" ref="userDao"></property>
 	</bean>
+	<bean id="menuService" class="com.tn.myssh.service.impl.MenuServiceImpl">
+		<property name="menuDao" ref="menuDao"></property>
+	</bean>
+	
 	<bean id="userAction" class="com.tn.myssh.action.UserAction"
 		scope="session">
 		<property name="userService" ref="userService"></property>
+	</bean>
+	<bean id="menuAction" class="com.tn.myssh.action.MenuAction" scope="session">
+		<property name="menuService" ref="menuService"></property>
 	</bean>
 </beans>
 	
