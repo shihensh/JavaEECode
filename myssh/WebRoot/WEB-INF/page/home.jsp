@@ -64,7 +64,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="row-fluid">
 				
 			<%@include file="menu.jsp" %>
-			
 			<noscript>
 				<div class="alert alert-block span10">
 					<h4 class="alert-heading">Warning!</h4>

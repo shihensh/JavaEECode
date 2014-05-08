@@ -2,20 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    
-    <title>My JSP 'menu.jsp' starting page</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
 
-  </head>
   
   <body>
     <!-- left menu starts -->
@@ -38,18 +25,15 @@
 						<li><a class="ajax-link" href="icon.html"><i class="icon-star"></i><span class="hidden-tablet"> Icons</span></a></li>
 						<li><a href="error.html"><i class="icon-ban-circle"></i><span class="hidden-tablet"> Error Page</span></a></li>
 						<li><a href="user/doLogin.action"><i class="icon-lock"></i><span class="hidden-tablet"> Login Page</span></a></li>
-					</ul>
-					
-					<ul>
-						<s:iterator value="menuList" id="menu">
-							<li><a class="ajax-link" href="#"><i class="icon-home"></i><span class="hidden-tablet"> <s:property value="#menu.menuName" /></span></a></li>
+						<s:iterator value="#session.menuList" id="menu">
+							<li><a class="ajax-link" href="<s:property value="#menu.menuUrl"/> "><i class="icon-home"></i><span class="hidden-tablet"> <s:property value="#menu.menuName" /></span></a></li>
 						
 						</s:iterator>
-					
 					</ul>
+					
 					<label id="for-is-ajax" class="hidden-tablet" for="is-ajax"><input id="is-ajax" type="checkbox"> Ajax on menu</label>
 				</div><!--/.well -->
 			</div><!--/span-->
 			<!-- left menu ends -->
   </body>
-</html>
+

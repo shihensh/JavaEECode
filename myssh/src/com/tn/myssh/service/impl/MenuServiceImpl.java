@@ -19,7 +19,7 @@ public class MenuServiceImpl<T> implements MenuService{
 	@Override
 	public List<Menu> listMenu() {
 		// TODO Auto-generated method stub
-		return (List<Menu>) menuDao.listAll(Menu.class);
+		return (List<Menu>) menuDao.listAll();
 	}
 
 	

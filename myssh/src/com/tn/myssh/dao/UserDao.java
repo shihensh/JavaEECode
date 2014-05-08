@@ -1,9 +1,12 @@
 package com.tn.myssh.dao;
 
+import java.util.List;
+
 import com.tn.myssh.pojo.User;
 
-public interface UserDao {
+public interface UserDao extends BaseDao {
 
 	User getUserByNameAndPwd(String username,String password);
-	void add(User user);
+	List<User> findAllUser();
+	
 }

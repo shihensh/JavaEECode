@@ -24,22 +24,30 @@ public class BaseDaoImpl<T>  implements BaseDao<T> {
 		return sessionFactory.getCurrentSession();
 	}
 
+
+	@SuppressWarnings("unchecked")
 	@Override
-	public void add(Object t) {
+	public List<T> listAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void add(T t) {
+		// TODO Auto-generated method stub
 		this.getSession().save(t);
 	}
-	
 
 	@Override
-	public List<T> listAll(Class T) {
+	public void saveOrUpdate(T t) {
 		// TODO Auto-generated method stub
-		return (List<T>) this.getSession().load(T, null);
+		this.getSession().saveOrUpdate(t);
 	}
 
 	@Override
-	public void saveOrUpdate(Object t) {
+	public void delete(T t) {
 		// TODO Auto-generated method stub
-		
+		this.getSession().delete(t);
 	}
 
 	

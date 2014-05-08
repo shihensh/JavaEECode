@@ -1,6 +1,8 @@
 package com.tn.myssh.dao.impl;
 
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -21,7 +23,10 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 		
 	}
 	
-	public void add(User user){
-		this.getSession().save(user);
+
+	@Override
+	public List<User> findAllUser() {
+		// TODO Auto-generated method stub
+		return this.listAll();
 	}
 }

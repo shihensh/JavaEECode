@@ -6,5 +6,7 @@ public interface BaseDao<T> {
 
 	void add(T t);
 	void saveOrUpdate(T t);
-	List<T> listAll(Class T);
+	List<T> listAll();
+	void delete(T t);
+	
 }
