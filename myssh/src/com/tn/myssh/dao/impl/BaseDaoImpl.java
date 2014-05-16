@@ -27,9 +27,10 @@ public class BaseDaoImpl<T>  implements BaseDao<T> {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<T> listAll() {
+	public List<T> listAll(String hql) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		return this.getSession().createQuery(hql).list();
 	}
 
 	@Override

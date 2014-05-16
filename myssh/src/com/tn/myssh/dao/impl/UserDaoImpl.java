@@ -25,8 +25,9 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 	
 
 	@Override
-	public List<User> findAllUser() {
+	public List<User> listAll(String hql) {
 		// TODO Auto-generated method stub
-		return this.listAll();
+		hql="from User";
+		return super.listAll(hql);
 	}
 }

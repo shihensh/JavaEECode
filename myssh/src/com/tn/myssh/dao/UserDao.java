@@ -7,6 +7,6 @@ import com.tn.myssh.pojo.User;
 public interface UserDao extends BaseDao {
 
 	User getUserByNameAndPwd(String username,String password);
-	List<User> findAllUser();
+	List<User> listAll(String hql);
 	
 }

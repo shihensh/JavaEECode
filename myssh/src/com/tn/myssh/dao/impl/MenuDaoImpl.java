@@ -10,10 +10,10 @@ public class MenuDaoImpl<T> extends BaseDaoImpl<T> implements MenuDao<T> {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<T> listAll() {
-		String hql = "from Menu";
-		Query query = this.getSession().createQuery(hql);
-		return query.list();
+	public List<T> listAll(String hql) {
+		hql = "from Menu";
+		
+		return super.listAll(hql);
 	}
 	
 }
